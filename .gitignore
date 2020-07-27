@@ -1,6 +1,8 @@
 # Default ignored files
 .idea/*
 
+.idea/compiler.xml
+
 # `*.iml` files in all sub-directories
 **/*.iml
 target/*
