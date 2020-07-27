@@ -5,4 +5,4 @@
 **/target/*
 
 # `*.iml` files in all sub-directories
-**/*.iml
+/*.iml
