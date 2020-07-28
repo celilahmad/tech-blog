@@ -28,4 +28,8 @@ public class Post {
     private String date;
 
     private String category;
+
+    /*@OneToMany(mappedBy = "post")
+    private List<Category> category;*/
+
 }

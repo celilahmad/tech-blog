@@ -36,4 +36,13 @@ public class PostService {
                         .filter(x -> x.getCategory().equals(category))
                         .collect(Collectors.toList());
     }
+
+    public List<Post> searchedPosts(String title){
+        return
+                postRepo
+                    .findAll()
+                    .stream()
+                    .filter(x -> x.getTitle().toLowerCase().contains(title.toLowerCase()))
+                    .collect(Collectors.toList());
+    }
 }

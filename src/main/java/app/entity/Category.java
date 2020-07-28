@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Data
@@ -17,4 +18,7 @@ public class Category {
     private String category;
 
     private String path;
+
+    /*@ManyToOne()
+    private Post post;*/
 }
