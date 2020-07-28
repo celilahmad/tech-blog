@@ -27,5 +27,5 @@ public class Post {
 
     private String date;
 
-    /*private String category;*/
+    private String category;
 }

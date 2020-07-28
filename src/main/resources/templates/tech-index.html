@@ -56,38 +56,16 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <a class="navbar-brand" href="tech-index.html"><img src="images/version/tech-logo.png" alt=""></a>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <ul class="navbar-nav mr-auto">
+                    <div class="collapse navbar-collapse" id="navbarCollapse" >
+                        <ul class="navbar-nav mr-auto" th:each="category : ${categories}">
                             <li class="nav-item">
-                                <a class="nav-link" href="tech-index.html">Home</a>
+                                <a class="nav-link" th:href="@{/}" th:text="${category.category}">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" th:href="@{/robotic}">Robotics</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" th:href="@{/network}">Network</a>
-                            </li>                   
-                            <li class="nav-item">
-                                <a class="nav-link" th:href="@{/space}">Space</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" th:href="@{/ai}">AI</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" th:href="@{/contact}">Contact Us</a>
-                            </li>
+
                         </ul>
-                        <ul class="navbar-nav mr-2">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa fa-rss"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa fa-android"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa fa-apple"></i></a>
-                            </li>
-                        </ul>
+                        <form class="navbar-nav mr-2">
+                            <input type="search" placeholder="Search..">
+                        </form>
                     </div>
                 </nav>
             </div><!-- end container-fluid -->

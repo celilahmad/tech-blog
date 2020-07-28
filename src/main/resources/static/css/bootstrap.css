@@ -7527,7 +7527,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
 }
 
 .mr-2 {
-  margin-right: 0.5rem !important;
+  margin-left: 20rem !important;
 }
 
 .mb-2 {
@@ -7827,7 +7827,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
 }
 
 .mr-auto {
-  margin-right: auto !important;
+  margin-right: unset /*auto !important*/;
 }
 
 .mb-auto {

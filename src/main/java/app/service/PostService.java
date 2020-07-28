@@ -27,4 +27,13 @@ public class PostService {
     public Post getPost(int id){
         return postRepo.findById(id).get();
     }
+
+    public List<Post> postCategory(String category){
+        return
+                postRepo
+                        .findAll()
+                        .stream()
+                        .filter(x -> x.getCategory().equals(category))
+                        .collect(Collectors.toList());
+    }
 }
