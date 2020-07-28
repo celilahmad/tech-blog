@@ -27,16 +27,11 @@ public class MainController {
     @GetMapping
     public String home(Model model) {
         List<Post> all = postService.allPosts();
-        List<Post> headPosts = postService.headPosts();
         List<Category> categories = categoryService.allCategory();
         model.addAttribute("categories", categories);
-        model.addAttribute("heads", headPosts);
         model.addAttribute("posts", all);
         return "tech-index";
 
     }
 
-   /*public String category(@ModelAttribute("category") String cat, Model model){
-
-   }*/
 }
