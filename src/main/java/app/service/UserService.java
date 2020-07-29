@@ -17,8 +17,9 @@ public class UserService {
     }
 
     public User saveUser(User user){
-       user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-       return userRepo.save(user);
+        User newUser = new User(user.getUsername(), user.getEmail(), user.getPassword());
+       newUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+       return userRepo.save(newUser);
     }
 
     public boolean isRegistered(String email) {

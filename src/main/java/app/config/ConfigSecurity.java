@@ -27,7 +27,7 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/register", "/login", "/forgot-password").permitAll()
                 .antMatchers("/css/**", "/img/**", "/js/**", "/fonts/**", "/upload/**").permitAll()
-                .anyRequest().authenticated()
+                //.anyRequest().authenticated()
 
                 .and()
                 .formLogin()

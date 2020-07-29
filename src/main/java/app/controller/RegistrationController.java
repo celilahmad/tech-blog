@@ -25,13 +25,13 @@ public class RegistrationController {
 
     @GetMapping
     public String registerPage(){
-        return "tech-registration";
+        return "registration";
     }
 
     @PostMapping
     public ModelAndView handle_post(@Valid @ModelAttribute(value = "user") User user, BindingResult result) {
         if (result.hasErrors())
-            return new ModelAndView("tech-registration", "user", user);
+            return new ModelAndView("registration", "user", user);
         if (userService.isRegistered(user.getEmail()))
             throw new UserAlreadyExistException("There is an account with that email address:" + user.getEmail());
         userService.saveUser(user);
