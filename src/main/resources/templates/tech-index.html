@@ -55,7 +55,7 @@
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand" href="tech-index.html"><img src="images/version/tech-logo.png" alt=""></a>
+                    <a class="navbar-brand" th:href="@{/}"><img src="images/version/tech-logo.png" alt=""></a>
                     <div class="collapse navbar-collapse" id="navbarCollapse" >
                         <ul class="navbar-nav mr-auto" th:each="category : ${categories}">
                             <li class="nav-item">
@@ -96,7 +96,7 @@
                                     </div><!-- end col -->
 
                                     <div class="blog-meta big-meta col-md-8">
-                                        <h4><a  th:href="@{'/detail/' + ${post.id}}" th:text="${post.title}"></a></h4>
+                                        <h4><a  th:href="@{'/detail/post/' + ${post.id}}" th:text="${post.title}"></a></h4>
                                         <p th:text="${post.header}"></p>
                                         <!--<small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Gadgets</a></small>-->
                                         <small><a href="tech-single.html" th:text="${post.date}"></a></small>
@@ -139,8 +139,8 @@
                             </div><!-- end widget -->
 
                             <div class="widget">
-                                <h2 class="widget-title">Trend Videos</h2>
-                                <div class="trend-videos">
+                                <h2 class="widget-title">Videos</h2>
+                                <div class="trend-videos" th:each="video : ${front}">
                                     <div class="blog-box">
                                         <div class="post-media">
                                             <a href="tech-single.html" title="">
@@ -151,41 +151,13 @@
                                             </a>
                                         </div><!-- end media -->
                                         <div class="blog-meta">
-                                            <h4><a href="tech-single.html" title="">We prepared the best 10 laptop presentations for you</a></h4>
+                                            <h4><a th:href="@{'/detail/video/' + ${video.id}}" th:text="${video.title}"></a></h4>
                                         </div><!-- end meta -->
                                     </div><!-- end blog-box -->
 
                                     <hr class="invis">
 
-                                    <div class="blog-box">
-                                        <div class="post-media">
-                                            <a href="tech-single.html" title="">
-                                                <img src="upload/tech_video_02.jpg" alt="" class="img-fluid">
-                                                <div class="hovereffect">
-                                                    <span class="videohover"></span>
-                                                </div><!-- end hover -->
-                                            </a>
-                                        </div><!-- end media -->
-                                        <div class="blog-meta">
-                                            <h4><a href="tech-single.html" title="">We are guests of ABC Design Studio - Vlog</a></h4>
-                                        </div><!-- end meta -->
-                                    </div><!-- end blog-box -->
-
-                                    <hr class="invis">
-
-                                    <div class="blog-box">
-                                        <div class="post-media">
-                                            <a href="tech-single.html" title="">
-                                                <img src="upload/tech_video_03.jpg" alt="" class="img-fluid">
-                                                <div class="hovereffect">
-                                                    <span class="videohover"></span>
-                                                </div><!-- end hover -->
-                                            </a>
-                                        </div><!-- end media -->
-                                        <div class="blog-meta">
-                                            <h4><a href="tech-single.html" title="">Both blood pressure monitor and intelligent clock</a></h4>
-                                        </div><!-- end meta -->
-                                    </div><!-- end blog-box -->
+                                    <a th:href="@{/video}">All Videos</a>
                                 </div><!-- end videos -->
                             </div><!-- end widget -->
 
@@ -347,13 +319,9 @@
                     <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                         <div class="widget">
                             <h2 class="widget-title">Popular Categories</h2>
-                            <div class="link-widget">
+                            <div class="link-widget" th:each="category : ${categories}">
                                 <ul>
-                                    <li><a href="#">Marketing <span>(21)</span></a></li>
-                                    <li><a href="#">SEO Service <span>(15)</span></a></li>
-                                    <li><a href="#">Digital Agency <span>(31)</span></a></li>
-                                    <li><a href="#">Make Money <span>(22)</span></a></li>
-                                    <li><a href="#">Blogging <span>(66)</span></a></li>
+                                    <li><a th:href="${category.path}" th:text="${category.category}"><span></span></a></li>
                                 </ul>
                             </div><!-- end link-widget -->
                         </div><!-- end widget -->
@@ -384,7 +352,7 @@
             </div><!-- end container -->
         </footer><!-- end footer -->
 
-        <div class="dmtop">Scroll to Top</div>
+        <!--<div class="dmtop">Scroll to Top</div>-->
         
     </div><!-- end wrapper -->
 

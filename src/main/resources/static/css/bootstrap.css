@@ -911,6 +911,7 @@ pre code {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+  margin-top: 2rem;
 }
 
 @media (min-width: 576px) {
@@ -9072,6 +9073,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
 
 .text-left {
   text-align: left !important;
+  margin-top: 1rem;
 }
 
 .text-right {
