@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 public class PostService {
@@ -20,12 +22,11 @@ public class PostService {
     }
 
     public List<Post> allPosts(){
-        return postRepo.findAll();
+        return
+                StreamSupport.stream(postRepo.findAll().spliterator(), false)
+                .collect(Collectors.toList());
     }
 
-    public List<Post> headPosts(){
-        return postRepo.findAll().stream().limit(3).collect(Collectors.toList());
-    }
 
     public Post getPost(int id){
         return postRepo.findById(id).get();
@@ -33,32 +34,26 @@ public class PostService {
 
     public List<Post> postCategory(String category){
         return
-                postRepo
-                        .findAll()
-                        .stream()
+                StreamSupport.stream(postRepo.findAll().spliterator(), false)
                         .filter(x -> x.getCategory().equals(category))
                         .collect(Collectors.toList());
     }
 
     public List<Post> searchedPosts(String title){
         return
-                postRepo
-                    .findAll()
-                    .stream()
+            StreamSupport.stream(postRepo.findAll().spliterator(), false)
                     .filter(x -> x.getTitle().toLowerCase().contains(title.toLowerCase()))
                     .collect(Collectors.toList());
     }
 
     public List<Post> limitPost() {
         return
-                postRepo
-                    .findAll()
-                    .stream()
+               StreamSupport.stream(postRepo.findAll().spliterator(), false)
                     .limit(5)
                     .collect(Collectors.toList());
     }
 
-    public Page<Post> findById(@RequestParam("id") int id){
-        return postRepo.findAllById(0, new PageRequest(0, 2));
+    public Page<Post> listAll(int pageNumber){
+        return postRepo.findAll(PageRequest.of(pageNumber - 1, 3));
     }
 }
