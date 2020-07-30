@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Controller
-@RequestMapping("/")
+
 public class MainController {
 
     private final PostService postService;
@@ -32,19 +32,20 @@ public class MainController {
         this.videoService = videoService;
     }
 
-    @GetMapping
+    @RequestMapping("/")
     public String home(Model model) {
 
         return listByPage(model, 1);
 
     }
 
-    @GetMapping("page/{pageNumber}")
+    @GetMapping("/page/{pageNumber}")
     public String listByPage(Model model,
                            @PathVariable("pageNumber") int currentPage){
         Page<Post> page = postService.listAll(currentPage);
         long totalItem = page.getTotalElements();
-        List<Integer> totalPages = IntStream.rangeClosed(1, page.getTotalPages()).boxed().collect(Collectors.toList());
+        int totalPages = page.getTotalPages();
+        List<Integer> listTotalPages = IntStream.rangeClosed(1, page.getTotalPages()).boxed().collect(Collectors.toList());
         List<Post> all = page.getContent();
         List<VideoPost> front = videoService.frontPosts();
         List<Category> categories = categoryService.allCategory();
@@ -55,6 +56,7 @@ public class MainController {
         model.addAttribute("currentPage", currentPage);
         model.addAttribute("totalItem", totalItem);
         model.addAttribute("totalPages", totalPages);
+        model.addAttribute("listTotalPages", listTotalPages);
 
         return "tech-index";
 

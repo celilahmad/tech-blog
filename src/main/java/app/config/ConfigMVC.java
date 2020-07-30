@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class ConfigMVC implements WebMvcConfigurer {
 
     private static final String[][] mappings = {
-            { "/",                "tech-index"           },
+            { "/page/",     "tech-index"     },
             { "/detail",    "tech-single"    },
             /*{ "/index",           "index"           },
             { "/disable-news",    "disable-news"    },
