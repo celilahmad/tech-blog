@@ -911,6 +911,14 @@ div.tab button:hover {
     margin-bottom: 2rem;
 }
 
+.single-video-media {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    margin-left: 4rem;
+}
+
 .single-post-media img {
     width: 100%;
 }
@@ -1214,6 +1222,11 @@ hr.invis3 {
 
 .small-box .shadow-desc {
     padding: 1rem;
+}
+
+.videopos{
+    position: absolute;
+    margin-left: 30rem;
 }
 
 .hovereffect {

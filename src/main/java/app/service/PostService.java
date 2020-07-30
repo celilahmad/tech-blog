@@ -2,7 +2,10 @@ package app.service;
 
 import app.entity.Post;
 import app.repo.PostRepo;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -44,5 +47,18 @@ public class PostService {
                     .stream()
                     .filter(x -> x.getTitle().toLowerCase().contains(title.toLowerCase()))
                     .collect(Collectors.toList());
+    }
+
+    public List<Post> limitPost() {
+        return
+                postRepo
+                    .findAll()
+                    .stream()
+                    .limit(5)
+                    .collect(Collectors.toList());
+    }
+
+    public Page<Post> findById(@RequestParam("id") int id){
+        return postRepo.findAllById(0, new PageRequest(0, 2));
     }
 }

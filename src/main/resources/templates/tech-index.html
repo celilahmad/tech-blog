@@ -139,12 +139,13 @@
                             </div><!-- end widget -->
 
                             <div class="widget">
-                                <h2 class="widget-title">Videos</h2>
+                                <h2 class="widget-title"><a th:href="@{/video}">Videos</a></h2>
                                 <div class="trend-videos" th:each="video : ${front}">
                                     <div class="blog-box">
                                         <div class="post-media">
-                                            <a href="tech-single.html" title="">
-                                                <img src="upload/tech_video_01.jpg" alt="" class="img-fluid">
+                                            <a th:href="@{'/detail/video/' + ${video.id}}" title="">
+                                                <iframe width="400" height="150" th:src="${video.link}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
                                                 <div class="hovereffect">
                                                     <span class="videohover"></span>
                                                 </div><!-- end hover -->
@@ -157,7 +158,6 @@
 
                                     <hr class="invis">
 
-                                    <a th:href="@{/video}">All Videos</a>
                                 </div><!-- end videos -->
                             </div><!-- end widget -->
 

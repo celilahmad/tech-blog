@@ -96,7 +96,7 @@
                                 </div><!-- end col -->
 
                                 <div class="blog-meta big-meta col-md-8">
-                                    <h4><a  th:href="@{'/detail/' + ${post.id}}" th:text="${post.title}"></a></h4>
+                                    <h4><a  th:href="@{'/detail/post/' + ${post.id}}" th:text="${post.title}"></a></h4>
                                     <p th:text="${post.header}"></p>
                                     <!--<small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Gadgets</a></small>-->
                                     <small><a href="tech-single.html" th:text="${post.date}"></a></small>
