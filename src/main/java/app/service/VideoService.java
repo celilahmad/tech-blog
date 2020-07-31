@@ -3,6 +3,8 @@ package app.service;
 import app.entity.Post;
 import app.entity.VideoPost;
 import app.repo.VideoRepo;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,4 +34,9 @@ public class VideoService {
     public VideoPost getVideo(int id){
         return videoRepo.findById(id).get();
     }
+
+    public Page<VideoPost> listAll(int pageNumber){
+        return videoRepo.findAll(PageRequest.of(pageNumber - 1, 3));
+    }
+
 }

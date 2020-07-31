@@ -23,7 +23,7 @@ public class PostService {
 
     public List<Post> allPosts(){
         return
-                StreamSupport.stream(postRepo.findAll().spliterator(), false)
+                postRepo.findAll().stream()
                 .collect(Collectors.toList());
     }
 
@@ -34,26 +34,33 @@ public class PostService {
 
     public List<Post> postCategory(String category){
         return
-                StreamSupport.stream(postRepo.findAll().spliterator(), false)
+                postRepo.findAll().stream()
                         .filter(x -> x.getCategory().equals(category))
                         .collect(Collectors.toList());
     }
 
     public List<Post> searchedPosts(String title){
         return
-            StreamSupport.stream(postRepo.findAll().spliterator(), false)
+            postRepo.findAll().stream()
                     .filter(x -> x.getTitle().toLowerCase().contains(title.toLowerCase()))
                     .collect(Collectors.toList());
     }
 
     public List<Post> limitPost() {
         return
-               StreamSupport.stream(postRepo.findAll().spliterator(), false)
+               postRepo.findAll().stream()
                     .limit(5)
                     .collect(Collectors.toList());
     }
 
     public Page<Post> listAll(int pageNumber){
         return postRepo.findAll(PageRequest.of(pageNumber - 1, 3));
+    }
+
+    public Page<Post> listByCategory(String category, int pageNumber){
+
+        return
+                postRepo.findAllByCategory(category, PageRequest.of(pageNumber -1, 2));
+
     }
 }
