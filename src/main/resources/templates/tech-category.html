@@ -23,22 +23,22 @@
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
 <!-- Bootstrap core CSS -->
-<link href="css/bootstrap.css" rel="stylesheet">
+<link href="/css/bootstrap.css" rel="stylesheet">
 
 <!-- FontAwesome Icons core CSS -->
-<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/font-awesome.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="css/style.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet">
 
 <!-- Responsive styles for this template -->
-<link href="css/responsive.css" rel="stylesheet">
+<link href="/css/responsive.css" rel="stylesheet">
 
 <!-- Colors for this template -->
-<link href="css/colors.css" rel="stylesheet">
+<link href="/css/colors.css" rel="stylesheet">
 
 <!-- Version Tech CSS for this template -->
-<link href="css/version/tech.css" rel="stylesheet">
+<link href="/css/version/tech.css" rel="stylesheet">
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -57,9 +57,9 @@
                 </button>
                 <a class="navbar-brand" href="tech-index.html"><img src="/images/version/tech-logo.png" alt=""></a>
                 <div class="collapse navbar-collapse" id="navbarCollapse" >
-                    <ul class="navbar-nav mr-auto" th:each="category : ${categories}">
+                    <ul class="navbar-nav mr-auto" th:each="currentCategory : ${categories}">
                         <li class="nav-item">
-                            <a class="nav-link" th:href="${category.path}" th:text="${category.category}"></a>
+                            <a class="nav-link" th:href="${currentCategory.path}" th:text="${currentCategory.category}"></a>
                         </li>
 
                     </ul>
@@ -72,59 +72,7 @@
         </div><!-- end container-fluid -->
     </header><!-- end market-header -->
 
-    <!-- <section class="section first-section" th:each="head : ${heads}">
-         <div class="container-fluid">
-             <div class="masonry-blog clearfix">
-                 &lt;!&ndash;<div class="first-slot">
-                     <div class="masonry-box post-media">
-                          <img th:src="${head.image}" alt="" class="img-fluid">
-                          <div class="shadoweffect">
-                             <div class="shadow-desc">
-                                 <div class="blog-meta">
-                                     <span class="bg-orange"><a href="tech-category-01.html" title="">Technology</a></span>
-                                     <h4><a href="tech-single.html" th:text="${head.title}"></a></h4>
-                                     <small><a href="tech-single.html" th:text="${head.date}"></a></small>
-                                     <small><a href="tech-author.html" th:text="${head.author}"></a></small>
-                                 </div>&lt;!&ndash; end meta &ndash;&gt;
-                             </div>&lt;!&ndash; end shadow-desc &ndash;&gt;
-                         </div>&lt;!&ndash; end shadow &ndash;&gt;
-                     </div>&lt;!&ndash; end post-media &ndash;&gt;
-                 </div>&lt;!&ndash; end first-side &ndash;&gt;&ndash;&gt;
 
-                 <div class="second-slot">
-                     <div class="masonry-box post-media">
-                          <img th:src="${head.image}" alt="" class="img-fluid">
-                          <div class="shadoweffect">
-                             <div class="shadow-desc">
-                                 <div class="blog-meta">
-                                     <span class="bg-orange"><a href="tech-category-01.html" title="">Gadgets</a></span>
-                                     <h4><a href="tech-single.html" th:text="${head.title}">Do not make mistakes when choosing web hosting</a></h4>
-                                     <small><a href="tech-single.html" th:text="${head.date}">03 July, 2017</a></small>
-                                     <small><a href="tech-author.html" th:text="${head.author}">by Jessica</a></small>
-                                 </div>&lt;!&ndash; end meta &ndash;&gt;
-                             </div>&lt;!&ndash; end shadow-desc &ndash;&gt;
-                          </div>&lt;!&ndash; end shadow &ndash;&gt;
-                     </div>&lt;!&ndash; end post-media &ndash;&gt;
-                 </div>&lt;!&ndash; end second-side &ndash;&gt;
-
-                &lt;!&ndash; <div class="last-slot">
-                     <div class="masonry-box post-media">
-                          <img src="upload/tech_03.jpg" alt="" class="img-fluid">
-                          <div class="shadoweffect">
-                             <div class="shadow-desc">
-                                 <div class="blog-meta">
-                                     <span class="bg-orange"><a href="tech-category-01.html" title="">Technology</a></span>
-                                     <h4><a href="tech-single.html" title="">The most reliable Galaxy Note 8 images leaked</a></h4>
-                                     <small><a href="tech-single.html" title="">01 July, 2017</a></small>
-                                     <small><a href="tech-author.html" title="">by Jessica</a></small>
-                                 </div>&lt;!&ndash; end meta &ndash;&gt;
-                             </div>&lt;!&ndash; end shadow-desc &ndash;&gt;
-                          </div>&lt;!&ndash; end shadow &ndash;&gt;
-                     </div>&lt;!&ndash; end post-media &ndash;&gt;
-                 </div> end second-side &ndash;&gt;
-             </div>&lt;!&ndash; end masonry &ndash;&gt;
-         </div>
-     </section>-->
 
 
     <hr class="invisheader">
@@ -170,14 +118,14 @@
                         <div class="col-md-12">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination justify-content-start"  >
-                                    <a class="page-link" th:if="${currentPage > 1}" th:href="@{'/' + ${path} + '/page/' + ${currentPage - 1}}">Previous</a>
+                                    <a class="page-link" th:if="${currentPage > 1}" th:href="@{'/' + ${paths} + '/page/' + ${currentPage - 1}}">Previous</a>
                                     <span th:unless="${currentPage > 1}"></span>
                                     <div th:each="page : ${listTotalPages}">
-                                        <li class="page-item" ><a class="page-link" th:if="${page != currentPage}" th:href="@{'/' + ${path} + '/page/' + ${page}}" th:text="${page}"></a></li>
+                                        <li class="page-item" ><a class="page-link" th:if="${page != currentPage}" th:href="@{'/' + ${paths} + '/page/' + ${page}}" th:text="${page}"></a></li>
                                         <span  class="page-link" th:unless="${page != currentPage}" th:text="${page}"></span>
                                     </div>
                                     <li>
-                                        <a class="page-link" th:if="${currentPage != totalPages}" th:href="@{'/' + ${path} + '/page/' + ${currentPage +1 }}">Next</a>
+                                        <a class="page-link" th:if="${currentPage != totalPages}" th:href="@{'/' + ${paths} + '/page/' + ${currentPage +1 }}">Next</a>
                                         <span th:unless="${currentPage != totalPages}"></span>
                                     </li>
                                 </ul>
@@ -191,59 +139,31 @@
                         <div class="widget">
                             <div class="banner-spot clearfix">
                                 <div class="banner-img">
-                                    <img src="upload/banner_07.jpg" alt="" class="img-fluid">
+                                    <img src="/upload/banner_07.jpg" alt="" class="img-fluid">
                                 </div><!-- end banner-img -->
                             </div><!-- end banner -->
                         </div><!-- end widget -->
 
                         <div class="widget">
-                            <h2 class="widget-title">Trend Videos</h2>
-                            <div class="trend-videos">
+                            <h2 class="widget-title"><a th:href="@{/video}">Videos</a></h2>
+                            <div class="trend-videos" th:each="video : ${front}">
                                 <div class="blog-box">
                                     <div class="post-media">
-                                        <a href="tech-single.html" title="">
-                                            <img src="upload/tech_video_01.jpg" alt="" class="img-fluid">
+                                        <a th:href="@{'/detail/video/' + ${video.id}}" title="">
+                                            <iframe width="400" height="150" th:src="${video.link}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
                                             <div class="hovereffect">
                                                 <span class="videohover"></span>
                                             </div><!-- end hover -->
                                         </a>
                                     </div><!-- end media -->
                                     <div class="blog-meta">
-                                        <h4><a href="tech-single.html" title="">We prepared the best 10 laptop presentations for you</a></h4>
+                                        <h4><a th:href="@{'/detail/video/' + ${video.id}}" th:text="${video.title}"></a></h4>
                                     </div><!-- end meta -->
                                 </div><!-- end blog-box -->
 
                                 <hr class="invis">
 
-                                <div class="blog-box">
-                                    <div class="post-media">
-                                        <a href="tech-single.html" title="">
-                                            <img src="upload/tech_video_02.jpg" alt="" class="img-fluid">
-                                            <div class="hovereffect">
-                                                <span class="videohover"></span>
-                                            </div><!-- end hover -->
-                                        </a>
-                                    </div><!-- end media -->
-                                    <div class="blog-meta">
-                                        <h4><a href="tech-single.html" title="">We are guests of ABC Design Studio - Vlog</a></h4>
-                                    </div><!-- end meta -->
-                                </div><!-- end blog-box -->
-
-                                <hr class="invis">
-
-                                <div class="blog-box">
-                                    <div class="post-media">
-                                        <a href="tech-single.html" title="">
-                                            <img src="upload/tech_video_03.jpg" alt="" class="img-fluid">
-                                            <div class="hovereffect">
-                                                <span class="videohover"></span>
-                                            </div><!-- end hover -->
-                                        </a>
-                                    </div><!-- end media -->
-                                    <div class="blog-meta">
-                                        <h4><a href="tech-single.html" title="">Both blood pressure monitor and intelligent clock</a></h4>
-                                    </div><!-- end meta -->
-                                </div><!-- end blog-box -->
                             </div><!-- end videos -->
                         </div><!-- end widget -->
 
@@ -405,9 +325,9 @@
                 <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                     <div class="widget">
                         <h2 class="widget-title">Categories</h2>
-                        <div class="link-widget" th:each="category : ${categories}">
+                        <div class="link-widget" th:each="currentCategory : ${categories}">
                             <ul>
-                                <li><a th:href="${category.path}" th:text="${category.category}"><span></span></a></li>
+                                <li><a th:href="${currentCategory.path}" th:text="${currentCategory.category}"><span></span></a></li>
                             </ul>
                         </div><!-- end link-widget -->
                     </div><!-- end widget -->

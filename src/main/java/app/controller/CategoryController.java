@@ -66,7 +66,7 @@ public class CategoryController {
         List<VideoPost> front = videoService.frontPosts();
         List<Category> categories = categoryService.allCategory();
 
-        model.addAttribute("path", category);
+        model.addAttribute("paths", category);
         model.addAttribute("front" , front);
         model.addAttribute("categories", categories);
         model.addAttribute("categoryPost", all);
