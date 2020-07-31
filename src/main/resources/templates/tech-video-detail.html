@@ -94,7 +94,6 @@
                                 <iframe width="700" height="400" th:src="${video.link}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-                            <!--<img th:src="${post.image}" alt="" class="img-fluid">-->
                         </div><!-- end media -->
 
                         <div class="blog-content">
@@ -116,9 +115,8 @@
 
                             <div class="post-sharing">
                                 <ul class="list-inline">
-                                    <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
-                                    <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
-                                    <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="https://www.facebook.com" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                                    <li><a href="https://www.twitter.com" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
                                 </ul>
                             </div><!-- end post-sharing -->
                         </div><!-- end title -->
@@ -132,12 +130,6 @@
                                 </div><!-- end banner -->
                             </div><!-- end col -->
                         </div><!-- end row -->
-
-                        <hr class="invis1">
-
-
-
-
 
                         <hr class="invis1">
 
@@ -159,19 +151,18 @@
                             <a href="index.html"><img src="/images/version/tech-footer-logo.png" alt="" class="img-fluid"></a>
                             <p>Tech Blog is a technology blog, we sharing marketing, news and gadget articles.</p>
                             <div class="social">
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google Plus"><i class="fa fa-google-plus"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                                <a href="https://www.facebook.com" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.twitter.com" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="https://www.instagram.com" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.pinterest.com" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
                             </div>
 
                             <hr class="invis">
 
                             <div class="newsletter-widget text-left">
-                                <form class="form-inline">
+                                <form class="form-inline" th:action="@{/subscribe}">
                                     <input type="text" class="form-control" placeholder="Enter your email address">
-                                    <button type="submit" class="btn btn-primary">SUBMIT</button>
+                                    <button type="submit" class="btn btn-primary">Subscribe</button>
                                 </form>
                             </div><!-- end newsletter -->
                         </div><!-- end footer-text -->

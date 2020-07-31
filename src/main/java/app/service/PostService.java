@@ -45,6 +45,10 @@ public class PostService {
                     .filter(x -> x.getTitle().toLowerCase().contains(title.toLowerCase()))
                     .collect(Collectors.toList());
     }
+   /* public Page<Post> searchedPosts(Optional<String> title, int pageNumber){
+        return
+                postRepo.findAllByTitle(title.ifPresent(x -> x.contains());, PageRequest.of(pageNumber - 1, 2));
+    }*/
 
     public List<Post> limitPost() {
         return
