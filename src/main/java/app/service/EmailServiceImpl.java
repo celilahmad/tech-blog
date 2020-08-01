@@ -31,7 +31,7 @@ public class EmailServiceImpl {
         emailSender.send(message);
     }
 
-    public boolean isBeforeSubscribed(String email) {
+    public boolean isAlreadySubscribed(String email) {
         return emailRepo.findByEmail(email);
     }
 }
