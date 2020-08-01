@@ -92,6 +92,11 @@ h5 {
     font-size: 24px;
 }
 
+.success-email {
+    margin-top: 4rem;
+    margin-bottom: 10rem;
+}
+
 .single-wrapper {
     margin-top: 3rem;
 }
