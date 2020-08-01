@@ -2,9 +2,9 @@ server:
   port: 8080
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/natgeo
-    username: root
-    password: hbstudent
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
   #jpa:
    # generate-ddl: true
     #show-sql: true
@@ -16,7 +16,7 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: tech.blog.smtp@gmail.com
-    password: techblog505
+    password: ${EMAIL_PASSWORD}
     properties:
       mail:
         smtp:
