@@ -37,9 +37,13 @@ public class SubscribeController {
        if (emailService.isAlreadySubscribed(email)){
             throw new EmailAlreadyExist(email + " already subscribed");
        }*/
-       emailService.sendEmail(email, "Tech Blog", "You have successfully subscribed to Tech Blog");
-       model.addAttribute("categories", categories);
-       model.addAttribute("email", email);
+       if (emailService.isAlreadySubscribed(email)){
+           throw new EmailAlreadyExist(email + " already subscribed");
+       }else {
+           emailService.sendEmail(email, "Tech Blog", "You have successfully subscribed to Tech Blog");
+           model.addAttribute("categories", categories);
+           model.addAttribute("email", email);
+       }
        return "tech-success";
 
    }

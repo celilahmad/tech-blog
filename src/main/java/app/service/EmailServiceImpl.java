@@ -32,7 +32,8 @@ public class EmailServiceImpl {
     }
 
     public boolean isAlreadySubscribed(String email) {
-        return emailRepo.findByEmail(email);
+        Email em = emailRepo.findByEmail(email);
+        return em != null && email.equals(em.getEmail());
     }
 }
 
