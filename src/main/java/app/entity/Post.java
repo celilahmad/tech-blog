@@ -32,4 +32,7 @@ public class Post {
     /*@OneToMany(mappedBy = "post")
     private List<Category> category;*/
 
+    @OneToMany(mappedBy = "post")
+    private List<Comment> comments;
+
 }
