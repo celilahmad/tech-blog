@@ -23,7 +23,7 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
                 .csrf().disable();
                 }
     @Override
-    public void configure(WebSecurity web) throws Exception {
+    public void configure(WebSecurity web){
         web
                 .ignoring()
                 .antMatchers("/resources/**");
