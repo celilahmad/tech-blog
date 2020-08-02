@@ -4,7 +4,6 @@ import app.entity.Category;
 import app.entity.Comment;
 import app.entity.Post;
 import app.entity.VideoPost;
-import app.exception.EmailAlreadyExist;
 import app.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -90,7 +90,6 @@
                                 <div class="col-md-4">
                                     <div class="post-media">
                                         <a th:href="@{'/detail/video' + ${video.id}}" title="">
-                                            <!--<iframe width="500" height="320" th:src="${video.link}"></iframe>-->
                                             <iframe width="560" height="250" th:src="${video.link}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                             <div class="hovereffect"></div>
                                         </a>
@@ -154,7 +153,7 @@
                                         </a>
                                     </div><!-- end media -->
                                     <div class="blog-meta">
-                                        <h4><a th:href="${post.title}" title=""></a></h4>
+                                        <h4><a th:href="@{'/detail/post/' + ${post.id}}" th:text="${post.title}"></a></h4>
                                     </div><!-- end meta -->
                                 </div><!-- end blog-box -->
 
@@ -211,7 +210,7 @@
                     <div class="widget">
                         <div class="footer-text text-left">
                             <a href="index.html"><img src="images/version/tech-footer-logo.png" alt="" class="img-fluid"></a>
-                            <p>Tech Blog is a technology blog, we sharing marketing, news and gadget articles.</p>
+                            <p>Tech Blog is a technology blog, we sharing latest news about technology</p>
                             <div class="social">
                                 <a href="https://www.facebook.com" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
                                 <a href="https://www.twitter.com" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
@@ -242,20 +241,6 @@
                     </div><!-- end widget -->
                 </div><!-- end col -->
 
-                <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
-                    <div class="widget">
-                        <h2 class="widget-title">Copyrights</h2>
-                        <div class="link-widget">
-                            <ul>
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Advertising</a></li>
-                                <li><a href="#">Write for us</a></li>
-                                <li><a href="#">Trademark</a></li>
-                                <li><a href="#">License & Help</a></li>
-                            </ul>
-                        </div><!-- end link-widget -->
-                    </div><!-- end widget -->
-                </div><!-- end col -->
             </div>
 
             <div class="row">
@@ -267,7 +252,6 @@
         </div><!-- end container -->
     </footer><!-- end footer -->
 
-    <!--<div class="dmtop">Scroll to Top</div>-->
 
 </div><!-- end wrapper -->
 
