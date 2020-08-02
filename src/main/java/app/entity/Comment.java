@@ -18,6 +18,8 @@ public class Comment {
 
     private String fullName;
 
+    private String email;
+
     private String comment;
 
     private String date;
@@ -26,8 +28,9 @@ public class Comment {
     @JoinColumn(name = "post_id")
     private Post post;
 
-    public Comment(String fullName, String comment, String date, Post post) {
+    public Comment(String fullName,String email, String comment, String date, Post post) {
         this.fullName = fullName;
+        this.email = email;
         this.comment = comment;
         this.date = date;
         this.post = post;

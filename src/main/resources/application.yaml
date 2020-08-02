@@ -5,11 +5,11 @@ spring:
     url: ${DB_URL}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
-  #jpa:
-   # generate-ddl: true
+  jpa:
+    generate-ddl: true
     #show-sql: true
-    #hibernate:
-     # ddl-auto: update
+    hibernate:
+      ddl-auto: update
 
    #email configuration for application.properties
   mail:

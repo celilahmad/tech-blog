@@ -4,13 +4,10 @@ import app.entity.Category;
 import app.entity.Comment;
 import app.entity.Post;
 import app.entity.VideoPost;
-import app.service.CategoryService;
-import app.service.CommentService;
-import app.service.PostService;
-import app.service.VideoService;
+import app.exception.EmailAlreadyExist;
+import app.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -23,12 +20,14 @@ public class PostDetailController {
     private final CategoryService categoryService;
     private final VideoService videoService;
     private final CommentService commentService;
+    private final EmailServiceImpl emailService;
 
-    public PostDetailController(PostService postService, CategoryService categoryService, VideoService videoService, CommentService commentService) {
+    public PostDetailController(PostService postService, CategoryService categoryService, VideoService videoService, CommentService commentService, EmailServiceImpl emailService) {
         this.postService = postService;
         this.categoryService = categoryService;
         this.videoService = videoService;
         this.commentService = commentService;
+        this.emailService = emailService;
     }
 
     @GetMapping("/detail/post/{id}")
@@ -56,9 +55,12 @@ public class PostDetailController {
     @PostMapping("/detail/post/{id}")
     public String postComment(@PathVariable("id") int id,
                               @RequestParam("fullName") String fullName,
+                              @RequestParam("email") String email,
                               @RequestParam("comment") String comment){
+
+        emailService.sendEmail(email, "Tech Blog", ("You have successfully commented\n\n" + comment));
         String date = LocalDate.now().toString();
-        commentService.save(new Comment(fullName, comment, date, new Post(id)));
+        commentService.save(new Comment(fullName, email, comment, date, new Post(id)));
         return "redirect:/detail/post/" + id;
     }
 }
