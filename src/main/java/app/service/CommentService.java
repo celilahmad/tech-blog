@@ -26,6 +26,15 @@ public class CommentService {
 
     }
 
+    public long countComments(int id){
+        return
+                commentRepo
+                .findAll()
+                .stream()
+                .filter(x -> x.getPost().getId() == id)
+                .collect(Collectors.counting());
+    }
+
     public void save(Comment comment){
         commentRepo.save(comment);
     }

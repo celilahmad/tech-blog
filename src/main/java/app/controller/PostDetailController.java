@@ -33,7 +33,9 @@ public class PostDetailController {
     public String postDetail(@PathVariable("id") int id, Model model){
         List<Category> categories = categoryService.allCategory();
         List<Comment> comments = commentService.postComments(id);
+        long count = commentService.countComments(id);
         Post post = postService.getPost(id);
+        model.addAttribute("count", count);
         model.addAttribute("comments", comments);
         model.addAttribute("categories", categories);
         model.addAttribute("post", post);
