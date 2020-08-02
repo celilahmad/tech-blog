@@ -17,7 +17,10 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/css/**", "/img/**", "/js/**", "/fonts/**", "/upload/**").permitAll();
+                .antMatchers("/css/**", "/img/**", "/js/**", "/fonts/**", "/upload/**")
+                .permitAll()
+                .and()
+                .csrf().disable();
                 }
     @Override
     public void configure(WebSecurity web) throws Exception {

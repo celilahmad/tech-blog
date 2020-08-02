@@ -1,12 +1,14 @@
 package app.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CollectionType;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "posts")
 public class Post {
@@ -35,4 +37,7 @@ public class Post {
     @OneToMany(mappedBy = "post")
     private List<Comment> comments;
 
+    public Post(int id) {
+        this.id = id;
+    }
 }

@@ -10,9 +10,10 @@ import app.service.PostService;
 import app.service.VideoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -31,7 +32,7 @@ public class PostDetailController {
     }
 
     @GetMapping("/detail/post/{id}")
-    public String postDetail(@ModelAttribute(name = "id") int id, Model model){
+    public String postDetail(@PathVariable("id") int id, Model model){
         List<Category> categories = categoryService.allCategory();
         List<Comment> comments = commentService.postComments(id);
         Post post = postService.getPost(id);
@@ -43,12 +44,21 @@ public class PostDetailController {
     }
 
     @GetMapping("/detail/video/{id}")
-    public String videoDetail(@ModelAttribute(name = "id") int id, Model model){
+    public String videoDetail(@PathVariable(name = "id") int id, Model model){
         List<Category> categories = categoryService.allCategory();
         VideoPost videoPost = videoService.getVideo(id);
         model.addAttribute("categories", categories);
         model.addAttribute("video", videoPost);
         return "tech-video-detail";
 
+    }
+
+    @PostMapping("/detail/post/{id}")
+    public String postComment(@PathVariable("id") int id,
+                              @RequestParam("fullName") String fullName,
+                              @RequestParam("comment") String comment){
+        String date = LocalDate.now().toString();
+        commentService.save(new Comment(fullName, comment, date, new Post(id)));
+        return "redirect:/detail/post/" + id;
     }
 }

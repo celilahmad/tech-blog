@@ -23,5 +23,10 @@ public class CommentService {
                         .stream()
                         .filter(x -> x.getPost().getId() == id)
                         .collect(Collectors.toList());
+
+    }
+
+    public void save(Comment comment){
+        commentRepo.save(comment);
     }
 }
