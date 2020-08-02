@@ -105,12 +105,11 @@
                                     <p>Fusce dapibus nunc quis quam tempor vestibulum sit amet consequat enim. Pellentesque blandit hendrerit placerat. Integertis non.</p>
                                 </div>
                                 <div class="col-lg-7">
-                                    <form class="form-wrapper">
-                                        <input type="text" class="form-control" placeholder="Your name">
-                                        <input type="text" class="form-control" placeholder="Email address">
-                                        <input type="text" class="form-control" placeholder="Phone">
-                                        <input type="text" class="form-control" placeholder="Subject">
-                                        <textarea class="form-control" placeholder="Your message"></textarea>
+                                    <form class="form-wrapper" th:action="@{/contact}" method="post">
+                                        <input type="text" class="form-control" placeholder="Your name" name="fullName">
+                                        <input type="text" class="form-control" placeholder="Email address" name="email">
+                                        <input type="text" class="form-control" placeholder="Subject" name="subject">
+                                        <textarea class="form-control" placeholder="Your message" name="content"></textarea>
                                         <button type="submit" class="btn btn-primary">Send <i class="fa fa-envelope-open-o"></i></button>
                                     </form>
                                 </div>
@@ -139,11 +138,11 @@
                                 <hr class="invis">
 
                                 <div class="newsletter-widget text-left">
-                                    <form class="form-inline">
-                                        <input type="text" class="form-control" placeholder="Enter your email address">
-                                        <button type="submit" class="btn btn-primary">SUBMIT</button>
+                                    <form class="form-inline" th:action="@{/search}">
+                                        <input type="text" class="form-control" placeholder="Search..." name="search">
+                                        <button type="submit" class="btn btn-primary">Search</button>
                                     </form>
-                                </div><!-- end newsletter -->
+                                </div>
                             </div><!-- end footer-text -->
                         </div><!-- end widget -->
                     </div><!-- end col -->
