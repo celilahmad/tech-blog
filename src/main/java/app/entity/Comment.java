@@ -20,6 +20,7 @@ public class Comment {
 
     private String email;
 
+    @Column(length = 1000)
     private String comment;
 
     private String date;

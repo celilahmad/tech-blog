@@ -16,6 +16,7 @@ public class VideoPost {
 
     private String title;
 
+    @Column(length = 10000)
     private String content;
 
     private String date;

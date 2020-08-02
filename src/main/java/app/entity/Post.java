@@ -21,6 +21,7 @@ public class Post {
 
     private String header;
 
+    @Column(length = 10000)
     private String content;
 
     private String image;

@@ -22,6 +22,7 @@ public class Contact {
 
     private String subject;
 
+    @Column(length = 1000)
     private String content;
 
     public Contact(String fullName, String email, String subject, String content) {
