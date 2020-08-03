@@ -38,7 +38,7 @@ public class VideoService {
     }
 
     public Page<VideoPost> listAll(int pageNumber){
-        Sort sort = Sort.by("id");
+        Sort sort = Sort.by("id").ascending();
         Pageable pageable = PageRequest.of(pageNumber - 1, 6, sort);
 
         return videoRepo.findAll(pageable);

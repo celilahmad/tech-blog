@@ -63,7 +63,7 @@ public class PostService {
     }
 
     public Page<Post> listAll(int pageNumber){
-        Sort sort = Sort.by("id");
+        Sort sort = Sort.by("id").ascending();
         Pageable pageable = PageRequest.of(pageNumber - 1, 6, sort);
         return postRepo
                 .findAll(pageable);
@@ -72,9 +72,10 @@ public class PostService {
     }
 
     public Page<Post> listByCategory(String category, int pageNumber){
-
+        Sort sort = Sort.by("id").ascending();
+        Pageable pageable = PageRequest.of(pageNumber - 1, 6, sort);
         return
-                postRepo.findAllByCategory(category, PageRequest.of(pageNumber -1, 6));
+                postRepo.findAllByCategory(category, pageable);
 
     }
 }
