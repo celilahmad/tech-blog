@@ -63,7 +63,7 @@ public class PostService {
     }
 
     public Page<Post> listAll(int pageNumber){
-        Sort sort = Sort.by("id").ascending();
+        Sort sort = Sort.by("date").descending();
         Pageable pageable = PageRequest.of(pageNumber - 1, 6, sort);
         return postRepo
                 .findAll(pageable);
