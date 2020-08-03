@@ -21,7 +21,7 @@ public class CategoryService {
     }
 
     public List<Category> allCategory() {
-        return categoryRepo.findAll();
+        return categoryRepo.findAll().stream().sorted().collect(Collectors.toList());
     }
 
     /*public List<Long> countCategory(){
