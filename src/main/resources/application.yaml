@@ -6,11 +6,11 @@ spring:
     username: gagpcnaavjkvdu
     password: 4aceef2a3d03b75118d59aaedc47c36e02ad2b1b3f258504b310d3cc5340dd77
 
-  #jpa:
-   # generate-ddl: true
+  jpa:
+    generate-ddl: true
     #show-sql: true
-    #hibernate:
-     # ddl-auto: update
+    hibernate:
+      ddl-auto: update
 
     #https://stormy-anchorage-47630.herokuapp.com/
 
