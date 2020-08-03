@@ -5,6 +5,8 @@ import app.entity.VideoPost;
 import app.repo.VideoRepo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,7 +38,10 @@ public class VideoService {
     }
 
     public Page<VideoPost> listAll(int pageNumber){
-        return videoRepo.findAll(PageRequest.of(pageNumber - 1, 3));
+        Sort sort = Sort.by("id");
+        Pageable pageable = PageRequest.of(pageNumber - 1, 6, sort);
+
+        return videoRepo.findAll(pageable);
     }
 
 }

@@ -4,9 +4,13 @@ import app.entity.Post;
 import app.repo.PostRepo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -21,9 +25,10 @@ public class PostService {
         this.postRepo = postRepo;
     }
 
+
     public List<Post> allPosts(){
         return
-                postRepo.findAll().stream().sorted()
+                postRepo.findAll().stream()
                 .collect(Collectors.toList());
     }
 
@@ -58,13 +63,18 @@ public class PostService {
     }
 
     public Page<Post> listAll(int pageNumber){
-        return postRepo.findAll(PageRequest.of(pageNumber - 1, 3));
+        Sort sort = Sort.by("id");
+        Pageable pageable = PageRequest.of(pageNumber - 1, 6, sort);
+        return postRepo
+                .findAll(pageable);
+
+
     }
 
     public Page<Post> listByCategory(String category, int pageNumber){
 
         return
-                postRepo.findAllByCategory(category, PageRequest.of(pageNumber -1, 2));
+                postRepo.findAllByCategory(category, PageRequest.of(pageNumber -1, 6));
 
     }
 }
