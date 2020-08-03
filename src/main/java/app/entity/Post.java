@@ -17,16 +17,13 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(length = 500)
     private String title;
 
-    @Column(length = 500)
     private String header;
 
     @Column(length = 10000)
     private String content;
 
-    @Column(length = 500)
     private String image;
 
     private String author;
