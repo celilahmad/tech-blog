@@ -5,6 +5,7 @@ import app.repo.CategoryRepo;
 import app.repo.PostRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -21,7 +22,12 @@ public class CategoryService {
     }
 
     public List<Category> allCategory() {
-        return categoryRepo.findAll().stream().sorted().collect(Collectors.toList());
+        return categoryRepo.findAll().stream().sorted(new Comparator<Category>() {
+            @Override
+            public int compare(Category o1, Category o2) {
+                return o1.getId() - o2.getId();
+            }
+        }).collect(Collectors.toList());
     }
 
     /*public List<Long> countCategory(){
