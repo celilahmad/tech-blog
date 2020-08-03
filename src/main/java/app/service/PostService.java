@@ -23,7 +23,7 @@ public class PostService {
 
     public List<Post> allPosts(){
         return
-                postRepo.findAll().stream()
+                postRepo.findAll().stream().sorted()
                 .collect(Collectors.toList());
     }
 
