@@ -2,9 +2,9 @@ server:
   port: ${PORT:8080}
 spring:
   datasource:
-    url: jdbc:postgresql://ec2-52-1-95-247.compute-1.amazonaws.com:5432/d18gg79tfv86g5
-    username: gagpcnaavjkvdu
-    password: 4aceef2a3d03b75118d59aaedc47c36e02ad2b1b3f258504b310d3cc5340dd77
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
 
   jpa:
     generate-ddl: true
